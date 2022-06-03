@@ -11,6 +11,8 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 // 自定義 methods
 import { transferToDate } from './methods/filters';
+// purge-icons
+import '@purge-icons/generated';
 
 // 載入 router & APP
 import router from './router';

@@ -45,23 +45,31 @@
       <div class="flex items-center mb-4">
         <!-- 有讚數 -->
         <div v-if="post.likes" class="flex items-center">
-          <div class="group">
+          <div class="group mr-2">
             <button
               type="button"
-              class="group-hover:hidden group-focus:hidden mr-2"
+              class="group-hover:hidden group-focus:hidden"
             >
-              <i
+              <!-- <i
                 class="bi bi-hand-thumbs-up text-xl font-extrabold text-primary"
-              ></i>
+              ></i> -->
+              <span
+                class="iconify text-xl font-extrabold text-primary"
+                data-icon="bi:hand-thumbs-up"
+              ></span>
             </button>
             <button
               @click="addLikes(post)"
               type="button"
-              class="hidden group-hover:block group-focus:block mr-2"
+              class="hidden group-hover:block group-focus:block"
             >
-              <i
+              <!-- <i
                 class="bi bi-hand-thumbs-up-fill text-xl font-extrabold text-primary"
-              ></i>
+              ></i> -->
+              <span
+                class="iconify text-xl font-extrabold text-primary"
+                data-icon="bi:hand-thumbs-up-fill"
+              ></span>
             </button>
           </div>
           <span class="font-baloo-da-2 text-base text-secondary">
@@ -75,9 +83,13 @@
             type="button"
             class="group-hover:hidden group-focus:hidden mr-1"
           >
-            <i
+            <!-- <i
               class="bi bi-hand-thumbs-up text-xl font-extrabold text-brown-1"
-            ></i>
+            ></i> -->
+            <span
+              class="iconify text-xl font-extrabold text-brown-1"
+              data-icon="bi:hand-thumbs-up"
+            ></span>
           </button>
           <span class="font-baloo-da-2 text-base text-brown-1">
             成為第一個按讚的朋友
@@ -119,7 +131,11 @@
         </div>
       </div>
       <!-- 留言串 -->
-      <div v-for="item in post.comments" :key="item._id" class="flex bg-gray-1 rounded-xl py-4.5 px-4 mt-4">
+      <div
+        v-for="item in post.comments"
+        :key="item._id"
+        class="flex bg-gray-1 rounded-xl py-4.5 px-4 mt-4"
+      >
         <!-- 回文者資訊 -->
         <div class="flex">
           <div
@@ -142,8 +158,7 @@
               {{ item.body || '暫時無法顯示' }}
             </p>
           </div>
-      </div>
-        
+        </div>
       </div>
     </div>
   </div>
@@ -155,7 +170,7 @@ export default {
     return {
       isLoading: false,
       allPosts: [],
-      commentBody:'',
+      commentBody: '',
     };
   },
   props: ['posts', 'user'],
@@ -177,11 +192,12 @@ export default {
     },
     addComment(post) {
       const comment = {
-        "articleID": post['_id'],
-        "author": this.user['_id'],
-        "body": this.commentBody
+        articleID: post['_id'],
+        author: this.user['_id'],
+        body: this.commentBody,
       };
-      const URL_Comment = 'https://cryptic-chamber-79078.herokuapp.com/comments';
+      const URL_Comment =
+        'https://cryptic-chamber-79078.herokuapp.com/comments';
       const URL_Post = `https://cryptic-chamber-79078.herokuapp.com/posts/${post['_id']}`;
       this.$http
         .post(URL_Comment, comment)

@@ -35,7 +35,8 @@
                 type="button"
                 class="flex items-center justify-center h-12 w-12 border-2 border-secondary rounded-full bg-info group-hover:drop-shadow-md group-hover:bg-blue-200 mr-4"
               >
-                <i class="bi bi-bell text-xl font-extrabold"></i>
+                <!-- <i class="bi bi-bell text-xl font-extrabold"></i> -->
+                <span class="iconify text-xl font-extrabold" data-icon="bi:bell"></span>
               </button>
               <p
                 class="group-hover:cursor-pointer group-hover:border-b-2 border-secondary"
@@ -50,7 +51,8 @@
                 type="button"
                 class="flex items-center justify-center h-12 w-12 border-2 border-secondary rounded-full bg-info group-hover:drop-shadow-md group-hover:bg-blue-200 mr-4"
               >
-                <i class="bi bi-hand-thumbs-up text-xl font-extrabold"></i>
+                <!-- <i class="bi bi-hand-thumbs-up text-xl font-extrabold"></i> -->
+                <span class="iconify text-xl font-extrabold" data-icon="bi:hand-thumbs-up"></span>
               </button>
               <p
                 class="group-hover:cursor-pointer group-hover:border-b-2 border-secondary"
