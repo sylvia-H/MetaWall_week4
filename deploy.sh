@@ -17,6 +17,6 @@ git add -A
 git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:sylvia-H/NodeJS_MetaWall_week4.git master:gh-pages
+git push -f git@github.com:sylvia-H/MetaWall_week4.git master:gh-pages
 
 cd -
