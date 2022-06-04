@@ -1,4 +1,7 @@
 <template>
+  <VLoading :active="isLoading" :z-index="3000">
+    <VueLoader></VueLoader>
+  </VLoading>
   <Navbar class="fixed" />
   <main class="min-h-screen bg-grid py-28">
     <div class="container_wall mx-auto flex justify-between">
@@ -68,10 +71,12 @@
 </template>
 
 <script>
-import Navbar from '../components/NavBar.vue';
+import Navbar from '@/components/NavBar.vue';
+import VueLoader from '@/components/LoadingOverlay.vue';
 export default {
   components: {
     Navbar,
+    VueLoader
   },
   data() {
     return {

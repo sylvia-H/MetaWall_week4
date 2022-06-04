@@ -1,4 +1,7 @@
 <template>
+  <VLoading :active="isLoading" :z-index="3000">
+    <VueLoader></VueLoader>
+  </VLoading>
   <div
     v-for="post in posts"
     :key="_id"
@@ -165,7 +168,11 @@
 </template>
 
 <script>
+import VueLoader from '@/components/LoadingOverlay.vue';
 export default {
+  components: {
+    VueLoader,
+  },
   data() {
     return {
       isLoading: false,
@@ -177,12 +184,14 @@ export default {
   inject: ['emitter'],
   methods: {
     addLikes(post) {
+      this.isLoading = true;
       let url = `https://cryptic-chamber-79078.herokuapp.com/posts/${post._id}`;
       let postBody = post;
       postBody.likes += 1;
       this.$http
         .patch(url, postBody)
         .then((res) => {
+          this.isLoading = false;
           this.posts = res.data.data;
         })
         .catch((err) => {
@@ -191,6 +200,7 @@ export default {
         });
     },
     addComment(post) {
+      this.isLoading = true;
       const comment = {
         articleID: post['_id'],
         author: this.user['_id'],
@@ -210,6 +220,7 @@ export default {
           this.$http
             .patch(URL_Post, postBody)
             .then((res) => {
+              this.isLoading = false;
               console.log(res.data.data);
               this.posts = res.data.data;
               this.emitter.emit('get-posts');

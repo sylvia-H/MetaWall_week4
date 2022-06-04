@@ -1,4 +1,7 @@
 <template>
+  <VLoading :active="isLoading" :z-index="3000">
+    <VueLoader></VueLoader>
+  </VLoading>
   <!-- 貼文排序 & 搜尋列 -->
   <div class="flex mb-4">
     <!-- 貼文排序 -->
@@ -56,11 +59,13 @@
 </template>
 
 <script>
-import NoPost from '../components/NoPost.vue';
-import WallPosts from '../components/WallPosts.vue';
+import VueLoader from '@/components/LoadingOverlay.vue';
+import NoPost from '@/components/NoPost.vue';
+import WallPosts from '@/components/WallPosts.vue';
 
 export default {
   components: {
+    VueLoader,
     NoPost,
     WallPosts,
   },

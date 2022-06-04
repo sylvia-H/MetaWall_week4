@@ -74,13 +74,13 @@ export default {
 }
 
 .out_loader img {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .in_loader {
   width: 3vmin;
   height: 3vmin;
-  border: 0.3vmin solid #83b875;
+  border: 0.3vmin solid #03438D;
   border-radius: 100vmin;
   /* background: #ebefec; */
   background: rgba(235, 239, 236, 0);
